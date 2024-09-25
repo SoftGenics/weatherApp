@@ -3,8 +3,6 @@ workflows:
     name: React Native Workflow
     max_build_duration: 60
     environment:
-      react_native:
-        version: latest
       node: latest
       cocoapods: default
       xcode: latest
