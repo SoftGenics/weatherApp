@@ -7,10 +7,7 @@ workflows:
       cocoapods: default
       xcode: latest
       java: latest
-      android:
-        build_tools_version: "30.0.3"
-        compile_sdk_version: "30"
-        ndk_version: "21.3.6528147"
+      # Removed the android section as it contains extra fields
     scripts:
       - name: Install dependencies
         script: yarn install
