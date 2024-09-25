@@ -1,0 +1,22 @@
+workflows:
+  react-native:
+    name: React Native Workflow
+    max_build_duration: 60
+    environment:
+      react_native:
+        version: latest
+      node: latest
+      cocoapods: default
+      xcode: latest
+      java: latest
+      android:
+        build_tools_version: "30.0.3"
+        compile_sdk_version: "30"
+        ndk_version: "21.3.6528147"
+    scripts:
+      - name: Install dependencies
+        script: yarn install
+      - name: Run Android build
+        script: cd android && ./gradlew assembleRelease
+    artifacts:
+      - build/app/outputs/apk/release/*.apk
