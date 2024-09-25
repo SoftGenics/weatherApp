@@ -7,10 +7,15 @@ workflows:
       cocoapods: default
       xcode: latest
       java: latest
-      # Removed the android section as it contains extra fields
+      android:
+        build_tools_version: "30.0.3"
+        compile_sdk_version: "30"
+        ndk_version: "21.3.6528147"
     scripts:
+      - name: Clear Yarn cache
+        script: yarn cache clean
       - name: Install dependencies
-        script: yarn install
+        script: yarn install --verbose
       - name: Run Android build
         script: cd android && ./gradlew assembleRelease
     artifacts:
