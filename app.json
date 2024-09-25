@@ -1,4 +1,9 @@
 {
   "name": "weatherapplication",
-  "displayName": "weatherapplication"
+  "displayName": "weatherapplication",
+  "extra": {
+    "eas": {
+      "projectId": "c6c60f5d-e8f1-471f-904e-d8a887dff05c"
+    }
+  }
 }
