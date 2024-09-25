@@ -8,9 +8,11 @@ workflows:
       xcode: latest
       java: latest
       android:
-        build_tools_version: "30.0.3"
-        compile_sdk_version: "30"
-        ndk_version: "21.3.6528147"
+        # These fields are typically not needed unless specifically required by Codemagic
+        # You can try commenting them out or removing them entirely
+        # build_tools_version: "30.0.3"
+        # compile_sdk_version: "30"
+        # ndk_version: "21.3.6528147"
     scripts:
       - name: Clear Yarn cache
         script: yarn cache clean
