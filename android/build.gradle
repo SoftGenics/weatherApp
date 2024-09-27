@@ -1,21 +1,63 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        buildToolsVersion = "34.0.0"
-        minSdkVersion = 23
-        compileSdkVersion = 34
-        targetSdkVersion = 34
-        ndkVersion = "26.1.10909125"
-        kotlinVersion = "1.9.24"
+        compileSdkVersion = 33
+        minSdkVersion = 21
+        targetSdkVersion = 33
+        buildToolsVersion = "33.0.0" // Specify the build tools version
+        ndkVersion = "23.1.7779620" // Set to your required NDK version
+        kotlinVersion = "1.6.10"
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
-        classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath 'com.android.tools.build:gradle:8.1.1' // Ensure this is the correct version
+        classpath 'com.facebook.react:react-native-gradle-plugin' // Required for React Native
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
 
-apply plugin: "com.facebook.react.rootproject"
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// Apply the Android plugin
+apply plugin: 'com.android.application'
+apply plugin: 'com.facebook.react'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion // Use the compileSdkVersion from root
+
+    defaultConfig {
+        applicationId "com.weatherapplication" // Update to your app's ID
+        minSdkVersion rootProject.ext.minSdkVersion // Use the minSdkVersion from root
+        targetSdkVersion rootProject.ext.targetSdkVersion // Use the targetSdkVersion from root
+        versionCode 1
+        versionName "1.0"
+        
+        // Specify the namespace
+        namespace "com.weatherapplication" // Update to match your application ID
+
+        ndkVersion rootProject.ext.ndkVersion // Ensure NDK version is set
+    }
+
+    buildToolsVersion rootProject.ext.buildToolsVersion // Ensure buildToolsVersion is set
+
+    buildTypes {
+        release {
+            minifyEnabled false // Set to true if using ProGuard
+            // Uncomment and configure these lines if using ProGuard
+            // proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.facebook.react:react-native:+' // Use the latest React Native version
+    // Add any additional dependencies your application may need
+}
