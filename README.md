@@ -217,17 +217,7 @@ You can use a .env file or directly replace the value in the config file where t
 Folder Structure
 Here's an overview of the project's folder structure:
 
-bash
-Copy code
-weatherApp/
-├── assets/                # Images, icons, and other static assets
-├── components/            # Reusable components
-├── screens/               # React Native screens (Home, Search, etc.)
-├── services/              # API service to interact with OpenWeather API
-├── App.js                 # Main app entry point
-├── .env                   # Environment variables file
-├── package.json           # Project dependencies
-└── README.md              # Project documentation
+
 API Integration
 This application uses the OpenWeather API to fetch real-time weather data. Below are the key endpoints used:
 
